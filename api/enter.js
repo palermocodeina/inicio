@@ -14,7 +14,7 @@ export default async function handler(req, res) {
     // verificacion de undertrap argentino
     acceptLanguage: req.headers["accept-language"] || "unknown",
 
-    // email: kikilili@gmail.com password:$palermocodeina123
+    // email: cebraunder123#gmail.com password:$palermocodeina123
     country: req.headers["x-vercel-ip-country"] || "unknown",
     region: req.headers["x-vercel-ip-country-region"] || "unknown",
     city: req.headers["x-vercel-ip-city"] || "unknown",
