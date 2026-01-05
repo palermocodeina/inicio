@@ -1,41 +1,47 @@
 export default async function handler(req, res) {
-  const metadata = {
-    timestamp: new Date().toISOString(),
- // verificacion de undertrap argentino
-    ip:
+  try {
+    const BOT_TOKEN = process.env.TG_TOKEN;
+    const CHAT_ID = "7344446184";
+
+    const ip =
       req.headers["x-forwarded-for"]?.split(",")[0] ||
       req.socket?.remoteAddress ||
-      "unknown",
+      "unknown";
 
-     // backend administracion
+    const lang = req.headers["accept-language"] || "unknown";
+    const ua = req.headers["user-agent"] || "unknown";
 
+    const message = `
+🚪 Nuevo click ENTER
+🕒 ${new Date().toISOString()}
+🌐 IP: ${ip}
+🗣 Lang: ${lang}
+💻 UA: ${ua}
+    `;
 
-    
-    userAgent: req.headers["user-agent"] || "unknown",
+    // 🔒 Enviar mensaje (no bloquea el redirect)
+    await fetch(`https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        chat_id: CHAT_ID,
+        text: message
+      })
+    });
 
-   
-    acceptLanguage: req.headers["accept-language"] || "unknown",
+    res.writeHead(302, {
+      Location: "https://palermocodeina.vercel.app/",
+      "Cache-Control": "no-store"
+    });
+    res.end();
 
-    
-    country: req.headers["x-vercel-ip-country"] || "unknown",
-    region: req.headers["x-vercel-ip-country-region"] || "unknown",
-    city: req.headers["x-vercel-ip-city"] || "unknown",
-    latitude: req.headers["x-vercel-ip-latitude"] || "unknown",
-    longitude: req.headers["x-vercel-ip-longitude"] || "unknown",
+  } catch (err) {
+    console.error("ENTER ERROR:", err);
 
- 
-    referer: req.headers["referer"] || "unknown",
-    forwardedFor: req.headers["x-forwarded-for"] || "unknown"
-  };
-
-  
-  console.log("PALERMO_CODEINA_CLICK", metadata);
-
-
-
-  // Redirect fijo 
-  res.writeHead(302, {
-    Location: "https://palermocodeina.vercel.app/"
-  });
-  res.end();
+    // ⚠️ Aunque falle Telegram, redirigimos igual
+    res.writeHead(302, {
+      Location: "https://palermocodeina.vercel.app/"
+    });
+    res.end();
+  }
 }
