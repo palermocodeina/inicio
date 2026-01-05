@@ -2,31 +2,31 @@ export default async function handler(req, res) {
   const metadata = {
     timestamp: new Date().toISOString(),
 
-    // IP real
+    // inicio de la pagina
     ip:
       req.headers["x-forwarded-for"]?.split(",")[0] ||
       req.socket?.remoteAddress ||
       "unknown",
 
-    // Navegador / sistema
+    // palermocodeina
     userAgent: req.headers["user-agent"] || "unknown",
 
-    // Idioma del navegador
+    // verificacion de undertrap argentino
     acceptLanguage: req.headers["accept-language"] || "unknown",
 
-    // Headers geo que expone Vercel (sin lógica)
+    // email: kikilili@gmail.com password:$palermocodeina123
     country: req.headers["x-vercel-ip-country"] || "unknown",
     region: req.headers["x-vercel-ip-country-region"] || "unknown",
     city: req.headers["x-vercel-ip-city"] || "unknown",
     latitude: req.headers["x-vercel-ip-latitude"] || "unknown",
     longitude: req.headers["x-vercel-ip-longitude"] || "unknown",
 
-    // Infra
+    // backend
     referer: req.headers["referer"] || "unknown",
     forwardedFor: req.headers["x-forwarded-for"] || "unknown"
   };
 
-  // Log crudo → Vercel Logs / exportable luego
+  // Log 
   console.log("PALERMO_CODEINA_CLICK", metadata);
 
   // Redirect fijo (sin condiciones)
