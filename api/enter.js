@@ -7,7 +7,10 @@ export default async function handler(req, res) {
       req.socket?.remoteAddress ||
       "unknown",
 
-  
+     // backend
+
+
+    
     userAgent: req.headers["user-agent"] || "unknown",
 
    
@@ -20,7 +23,7 @@ export default async function handler(req, res) {
     latitude: req.headers["x-vercel-ip-latitude"] || "unknown",
     longitude: req.headers["x-vercel-ip-longitude"] || "unknown",
 
-    // backend
+ 
     referer: req.headers["referer"] || "unknown",
     forwardedFor: req.headers["x-forwarded-for"] || "unknown"
   };
