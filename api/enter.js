@@ -14,7 +14,7 @@ export default async function handler(req, res) {
     // verificacion de undertrap argentino
     acceptLanguage: req.headers["accept-language"] || "unknown",
 
-    // email: cebraunder123#gmail.com password:$palermocodeina123
+    
     country: req.headers["x-vercel-ip-country"] || "unknown",
     region: req.headers["x-vercel-ip-country-region"] || "unknown",
     city: req.headers["x-vercel-ip-city"] || "unknown",
@@ -26,10 +26,10 @@ export default async function handler(req, res) {
     forwardedFor: req.headers["x-forwarded-for"] || "unknown"
   };
 
-  // Log 
+  
   console.log("PALERMO_CODEINA_CLICK", metadata);
 
-  // Redirect fijo (sin condiciones)
+  // Redirect fijo 
   res.writeHead(302, {
     Location: "https://palermocodeina.vercel.app/"
   });
