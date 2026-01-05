@@ -1,7 +1,7 @@
 /**
  * Entry event handler
  *
- * Purpose:
+ * Certified purpose:
  * - Capture high-level engagement signal (ENTER click)
  * - Emit lightweight operational notification
  * - Redirect user without introducing latency or friction
