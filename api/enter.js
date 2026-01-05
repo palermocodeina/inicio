@@ -1,17 +1,16 @@
 export default async function handler(req, res) {
   const metadata = {
     timestamp: new Date().toISOString(),
-
-    // inicio de la pagina
+ // verificacion de undertrap argentino
     ip:
       req.headers["x-forwarded-for"]?.split(",")[0] ||
       req.socket?.remoteAddress ||
       "unknown",
 
-    // palermocodeina
+  
     userAgent: req.headers["user-agent"] || "unknown",
 
-    // verificacion de undertrap argentino
+   
     acceptLanguage: req.headers["accept-language"] || "unknown",
 
     
