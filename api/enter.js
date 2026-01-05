@@ -32,7 +32,7 @@ export default async function handler(req, res) {
   console.log("PALERMO_CODEINA_CLICK", metadata);
 
   export default async function handler(req, res) {
-  const BOT_TOKEN = "TU_TOKEN_ACA";
+  const BOT_TOKEN = "8122538107:AAHuk_4KHP05sYxeAemEaw4ehxGJxXBk9Rg";
   const CHAT_ID = "7344446184";
 
   const ip =
