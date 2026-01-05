@@ -5,13 +5,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Palermo Codeina</title>
 
-<!-- Fuentes -->
 <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
 
 <style>
-/* ================================ */
-/* PALETA Y VARIABLES ORIGINALES    */
-/* ================================ */
+
 :root {
     --color-fondo: #120A2A;
     --color-verde-neon: #39FF14;
@@ -23,9 +20,7 @@
     --fuente-cuerpo: 'Orbitron', sans-serif;
 }
 
-/* ================================ */
-/* ESTILOS BASE */
-/* ================================ */
+
 body {
     margin: 0;
     padding: 0;
@@ -40,7 +35,7 @@ body {
     position: relative;
 }
 
-/* Scanlines CRT */
+
 body::before {
     content: "";
     position: absolute;
@@ -62,9 +57,7 @@ body::before {
     100% { transform: translateY(100%); }
 }
 
-/* ================================ */
-/* CONTENIDO CENTRAL */
-/* ================================ */
+
 .container {
     text-align: center;
     z-index: 10;
@@ -76,9 +69,7 @@ body::before {
     to   { opacity: 1; transform: translateY(0); }
 }
 
-/* ================================ */
-/* TITULO GLITCH + NEON */
-/* ================================ */
+
 .title {
     font-family: var(--fuente-titulo);
     font-size: 2.8rem;
@@ -91,7 +82,7 @@ body::before {
     animation: neonPulse 1.5s ease-in-out infinite alternate;
 }
 
-/* glitch soft */
+
 .title::before,
 .title::after {
     content: attr(data-text);
@@ -130,9 +121,7 @@ body::before {
   100% { text-shadow: 0 0 20px var(--color-verde-neon); }
 }
 
-/* ================================ */
-/* BOTONES VIDEOJUEGO */
-/* ================================ */
+
 .buttons {
     margin-top: 40px;
     display: flex;
@@ -162,16 +151,14 @@ body::before {
     color: #120A2A;
 }
 
-/* ================================ */
-/* LIENZO DE PARTÍCULAS */
-/* ================================ */
+
 canvas {
     position: absolute;
     inset: 0;
     z-index: 1;
 }
 
-/* Responsive */
+
 @media (max-width: 500px) {
     .title { font-size: 1.9rem; }
 }
@@ -194,9 +181,7 @@ canvas {
 </div>
 
 <script>
-/* ================================ */
-/* PARTÍCULAS NEON */
-/* ================================ */
+
 const canvas = document.getElementById("particles");
 const ctx = canvas.getContext("2d");
 
@@ -239,6 +224,7 @@ loop();
 
 </body>
 </html>
+
 
 
 
