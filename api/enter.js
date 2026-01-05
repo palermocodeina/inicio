@@ -2,7 +2,7 @@
  * Entry event handler
  *
  * Certified purpose:
- 
+ *
  * - Emit lightweight operational notification
  * - Redirect user without introducing latency or friction
  *
