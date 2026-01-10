@@ -48,7 +48,7 @@ export default async function handler(req, res) {
     const ua = req.headers["user-agent"] || "unknown";
 
     const message = `
-Che boumper llego otro fijate klk 
+Che xxxxxx llego otro fijate klk 
 🕒 ${new Date().toISOString()}
 🌐 IP: ${ip}
 🗣 Lang: ${lang}
